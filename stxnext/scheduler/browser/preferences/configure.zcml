@@ -1,0 +1,38 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+    <browser:page
+    	for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    	name="synchro-controlpanel"
+    	permission="synchro.Execute"
+    	class=".synchro.SynchroForm"
+    	/>
+    	
+   	<browser:view
+   		for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+   		name="synchro-remove"
+   		permission="synchro.Execute"
+    	class=".synchro.SynchroRemove"
+    	/>
+    	
+    <browser:view
+   		for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+   		name="synchro-repeat"
+   		permission="synchro.Execute"
+    	class=".synchro.SynchroRepeat"
+    	/>
+    	
+    <!-- Page layout for the control panel-->
+    <adapter
+     	for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+     	provides=".synchro.ISynchro"
+     	factory=".synchro.SynchroAdapter"
+     	/>
+     	
+    <utility
+	    component=".synchro.SynchroActionsVocabularyFactory"
+	    name="stxnext.scheduler.vocabularies.Actions"
+	    />
+
+</configure>
