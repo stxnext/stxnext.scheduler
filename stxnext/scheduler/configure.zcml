@@ -8,7 +8,8 @@
   <five:registerPackage package="." initialize=".initialize" />
 
   <include package="collective.autopermission" />
-
+  <include package="Products.CMFCore"
+           file="permissions.zcml" />
   <include package="." file="permissions.zcml" />
   <include package=".browser" />   
   <include package=".content" />
